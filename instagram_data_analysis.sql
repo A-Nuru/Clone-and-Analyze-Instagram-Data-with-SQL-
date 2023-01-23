@@ -46,3 +46,13 @@ CREATE TABLE follows (
     FOREIGN KEY(followee_id) REFERENCES users(id),
     PRIMARY KEY(follower_id, followee_id)
 );
+
+
+
+CREATE TABLE tags (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  tag_name VARCHAR(255) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+
