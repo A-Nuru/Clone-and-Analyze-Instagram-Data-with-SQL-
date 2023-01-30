@@ -102,4 +102,7 @@ group by day
 order by day_count desc limit 2;
 
 
-
+-- finding inactive users who have never posted a photo
+select users.id, username, image_url from users
+left join photos on users.id = photos.user_id 
+where image_url is null
