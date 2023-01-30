@@ -86,5 +86,20 @@ select *  from users order by created_at limit 5;
 select *  from users where created_at = (select min(created_at) from users);
 
 -- OR 
+-- what day of week do most users register on
 
+select dayname(created_at) as day, count(*) as day_count
+from users 
+group by day
+order by day_count desc limit 2;
 select *  from users order by created_at limit 1;
+
+-- OR
+
+select dayofweek(created_at) as day, count(dayofweek(created_at)) as day_count
+from users 
+group by day 
+order by day_count desc limit 2;
+
+
+
