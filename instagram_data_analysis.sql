@@ -81,3 +81,10 @@ INSERT INTO photo_tags(photo_id, tag_id) VALUES (1, 18), (1, 17), (1, 21), (1, 1
 
 -- Find the five oldest users
 select *  from users order by created_at limit 5;
+
+-- Find the oldest user
+select *  from users where created_at = (select min(created_at) from users);
+
+-- OR 
+
+select *  from users order by created_at limit 1;
