@@ -124,3 +124,9 @@ GROUP BY photos.id
 ORDER BY total DESC
 LIMIT 1;
 
+-- 6. Finding how many times an average user post
+SELECT (SELECT Count(*) 
+        FROM   photos) / (SELECT Count(*) 
+                          FROM   users) AS avg; 
+                          
+
