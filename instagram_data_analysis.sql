@@ -142,3 +142,13 @@ ORDER  BY total DESC
 LIMIT  5;                    
                           
                           
+-- 8. Finding users who have liked every single photo on the site
+-- Used to identify bots on the site
+ SELECT username, 
+       Count(*) AS num_likes 
+FROM   users 
+       INNER JOIN likes 
+               ON users.id = likes.user_id 
+GROUP  BY likes.user_id 
+HAVING num_likes = (SELECT Count(*) 
+                    FROM   photos); 
